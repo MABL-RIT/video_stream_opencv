@@ -3,9 +3,9 @@
    <!-- launch video stream -->
    <include file="$(find video_stream_opencv)/launch/camera.launch" >
    		<!-- node name and ros graph name -->
-	  	<arg name="camera_name" value="axis_videocap" />
+	  	<arg name="camera_name" value="ip_cam" />
 	  	<!-- url of the video stream -->
-	  	<arg name="video_stream_provider" value="http://10.68.0.6/mjpg/video.mjpg" />
+	  	<arg name="video_stream_provider" value="http://192.168.1.112/axis-cgi/mjpg/video.cgi" />
 	  	<!-- set camera fps to (probably does nothing on a mjpeg stream)-->
 	  	<arg name="set_camera_fps" value="30"/>
       	<!-- set buffer queue size of frame capturing to -->
@@ -24,4 +24,7 @@
 	  	<!-- visualize on an image_view window the stream generated -->
 	  	<arg name="visualize" value="false" />
    </include>
+
+	<node pkg="rosbag" type="record" name="rosbag_ip_cam" args="record -o /media/cs1323/storage/EXPERIMENTS/IP_CAM_BAG/ /ip_cam/camera_info /ip_cam/image_raw/compressed"/>   
+  
 </launch>
