@@ -5,17 +5,17 @@
    		<!-- node name and ros graph name -->
 	  	<arg name="camera_name" value="ip_cam" />
 	  	<!-- url of the video stream -->
-	  	<arg name="video_stream_provider" value="http://192.168.1.112/axis-cgi/mjpg/video.cgi" />
+	  	<arg name="video_stream_provider" value="http://192.168.1.158/axis-cgi/mjpg/video.cgi" />
 	  	<!-- set camera fps to (probably does nothing on a mjpeg stream)-->
-	  	<arg name="set_camera_fps" value="30"/>
+	  	<arg name="set_camera_fps" value="15"/>
       	<!-- set buffer queue size of frame capturing to -->
       	<arg name="buffer_queue_size" value="100" />
 	  	<!-- throttling the querying of frames to -->
-	  	<arg name="fps" value="30" />
+	  	<arg name="fps" value="15" />
 	  	<!-- setting frame_id -->
 	  	<arg name="frame_id" value="axis_optical_frame" />
-	  	<!-- camera info loading, take care as it needs the "file:///" at the start , e.g.:
-	  	"file:///$(find your_camera_package)/config/your_camera.yaml" -->
+	  	<!-- camera info loading, take care as it needs the "file:///" at the start , e.g.: "file:///$(find your_camera_package)/config/your_camera.yaml" -->
+		<!-- file://$(find video_stream_opencv)/ip_cam_config.yaml -->
 	  	<arg name="camera_info_url" value="" />
 	  	<!-- flip the image horizontally (mirror it) -->
 	  	<arg name="flip_horizontal" value="false" />
@@ -25,6 +25,11 @@
 	  	<arg name="visualize" value="false" />
    </include>
 
-	<node pkg="rosbag" type="record" name="rosbag_ip_cam" args="record -o /media/cs1323/storage/EXPERIMENTS/IP_CAM_BAG/ /ip_cam/camera_info /ip_cam/image_raw/compressed"/>   
+	<node pkg="rosbag" type="record" name="rosbag_ip_cam" args="record -o /media/mabl/storage/EXPERIMENTS/IP_CAM_BAG/ /ip_cam/camera_info /ip_cam/image_raw/compressed"/>   
+
+	<node name="image_view_ip_cam" pkg="image_view" type="image_view" respawn="false" output="screen">
+		<remap from="image" to="/ip_cam/compressed"/>
+		<param name="autosize" value="true" />
+  	</node>
   
 </launch>

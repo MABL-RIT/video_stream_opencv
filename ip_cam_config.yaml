@@ -1,0 +1,57 @@
+!!python/object/new:dynamic_reconfigure.encoding.Config
+dictitems:
+  auto_exposure: true
+  brightness: 0.5019607843137255
+  buffer_queue_size: 100
+  camera_info_url: ''
+  camera_name: ip_cam
+  contrast: 0.12549019607843137
+  exposure: 0.5
+  flip_horizontal: false
+  flip_vertical: false
+  fps: 15.0
+  frame_id: axis_optical_frame
+  groups: !!python/object/new:dynamic_reconfigure.encoding.Config
+    dictitems:
+      auto_exposure: true
+      brightness: 0.5019607843137255
+      buffer_queue_size: 100
+      camera_info_url: ''
+      camera_name: ip_cam
+      contrast: 0.12549019607843137
+      exposure: 0.5
+      flip_horizontal: false
+      flip_vertical: false
+      fps: 15.0
+      frame_id: axis_optical_frame
+      groups: !!python/object/new:dynamic_reconfigure.encoding.Config
+        state: []
+      height: 0
+      hue: 0.5
+      id: 0
+      loop_videofile: false
+      name: Default
+      output_encoding: bgr8
+      parameters: !!python/object/new:dynamic_reconfigure.encoding.Config
+        state: []
+      parent: 0
+      reopen_on_read_failure: false
+      saturation: 0.64
+      set_camera_fps: 15.0
+      start_frame: 0
+      state: true
+      stop_frame: -1
+      type: ''
+      width: 0
+    state: []
+  height: 0
+  hue: 0.5
+  loop_videofile: false
+  output_encoding: bgr8
+  reopen_on_read_failure: false
+  saturation: 0.64
+  set_camera_fps: 15.0
+  start_frame: 0
+  stop_frame: -1
+  width: 0
+state: []
